@@ -12,19 +12,20 @@ using namespace std;
 
 int h[max_n + 5];
 long long l[max_n + 5], r[max_n + 5];
-int s[max_n + 5], top = 0;
+int s[max_n + 5], top = -1;
 
 int main(){
     int n;
     cin >> n;
     s[0] = s[n + 1] = -1;
-    for(int i = 0; i < n; i++) cin >> h[i];
+    for(int i = 1; i <= n; i++) cin >> h[i];
     s[++top] = 0;
     for(int i = 1; i <= n; i++){
         while(h[i] <= h[s[top]]) --top;
         l[i] = s[top];
         s[++top] = i;
     }
+
     top = -1;
     s[++top] = n + 1;
     for(int i = n; i >= 1; --i){

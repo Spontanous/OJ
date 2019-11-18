@@ -20,7 +20,7 @@ int main(){
     for(int i = 0; i < n; i++){
         while(tail - head && arr[i] < arr[q[tail - 1]]) tail--;
         q[tail++] = i;
-        if(i+1 < k) continue;
+        if(i + 1 < k) continue;
         if(i - q[head] == k) head++;
         i + 1 == k || printf(" ");
         printf("%d", arr[q[head]]);
