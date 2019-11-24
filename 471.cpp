@@ -13,8 +13,8 @@ using namespace std;
 
 #define max_n 200
 
-char str_a[max_n + 5][max_n + 5];
-int a[max_n + 5], b[max_n + 5], ans[max_n + 5];
+char str_a[max_n + 5], str_b[max_n + 5];
+long long a[max_n + 5], b[max_n + 5], ans[max_n + 5];
 
 int main(){
     cin >> str_a >> str_b;
@@ -32,7 +32,7 @@ int main(){
         }
     }
     int len_ans = len_a + len_b;
-    while(ans[len_ans] == 0) len_an--;
+    while(ans[len_ans] == 0) len_ans--;
     for(int i = len_ans; i >= 0; i--){
         cout << ans[i];
     }
