@@ -28,7 +28,7 @@ UnionSet u;
 char g[1005][1005];
 int n, m;
 int ind(int i, int j){
-    return i *m +j + 1;
+    return i * m + j + 1;
 }
 
 int main(){

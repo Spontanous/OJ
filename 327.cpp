@@ -14,26 +14,28 @@ using namespace std;
 struct UnioSet{
     int fa[max_n + 5], val[max_n + 5];
     void init(int n){
-        for(int i = 0; i < n; i++){
+        for(int i = 1; i <= n; i++){
             fa[i] = i;
             val[i] = 0;
         }
     }
     int get(int x){
-        if(x == fa[x]) return 0;
+        if(x == fa[x]) return x;
         int root = get(fa[x]);
         val[x] += val[fa[x]];
         val[x] %= 2;
         return fa[x] = root;
     }
     bool merge(int a, int b){
-        int aa = fa[a] , bb = fa[b];
+        int aa = get(a) , bb = get(b);
         if(aa == bb) {
-            if((val[a] + val[b]) % 2 == 0) return false;
-            return true;
+            return (val[a] + val[b]) % 2;
+            //if((val[a] + val[b]) % 2 == 0) return false;
+            //return true;
         }
         fa[aa] = bb;
-        val[aa] = (3 + val[b] - val[b]) % 2; 
+        val[aa] = (3 + val[b] - val[a]) % 2;
+        return true;
     }
 };
 
